@@ -1,24 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
 
+const story = [
+              {
+                id:'a',
+                content:'You are standing before a great dark forest. Choose where to go',
+                links:[{
+                  label:'North',
+                  target:'b'
+                },{
+                  label:'South',
+                  target:'b'
+                },{
+                  label:'East',
+                  target:'b'
+                },{
+                  label:'West',
+                  target:'b'
+                }]
+              }
+]
+
+const mapLinks = story[0].links.map((l)=>{
+  return <li>{l.label}</li>
+    
+})
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <> 
+    <p>{story[0].content}</p>
+    <ul>
+      {mapLinks}
+    </ul>
+  </>  
   );
 }
 
