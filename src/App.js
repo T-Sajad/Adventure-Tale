@@ -1,39 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+
+// const  [index,setindex] = useState[0]
 
 const story = [
-              {
-                id:'a',
-                content:'You are standing before a great dark forest. Choose where to go',
-                links:[{
-                  label:'North',
-                  target:'b'
-                },{
-                  label:'South',
-                  target:'b'
-                },{
-                  label:'East',
-                  target:'b'
-                },{
-                  label:'West',
-                  target:'b'
-                }]
-              }
-]
+  // This is page a
+  {
+    id: "a",
+    content: "You are standing before a great dark forest. Choose where to go",
+    links: [
+      {
+        label: "North",
+        target: "b",
+      },
+      {
+        label: "South",
+        target: "b",
+      },
+      {
+        label: "East",
+        target: "b",
+      },
+      {
+        label: "West",
+        target: "b",
+      },
+    ],
+  },
 
-const mapLinks = story[0].links.map((l)=>{
-  return <li>{l.label}</li>
-    
-})
+  // this is page b
+  {
+    id: "b",
+    content: "You are standing before a sea",
+    links: [
+      {
+        label: "North",
+        target: "b",
+      },
+      {
+        label: "East",
+        target: "b",
+      },
+    ],
+  },
+];
 
-function App() {
+// handleclick function purpose is when the user clicks the direction he will taken to another
+
+// <App page="a" />
+function App({ page }) {
+  const index = story.findIndex((element) => element.id === page);
+  const { links, content } = story[index];
+
   return (
-   <> 
-    <p>{story[0].content}</p>
-    <ul>
-      {mapLinks}
-    </ul>
-  </>  
+    <>
+      <p>{content}</p>
+      <ul>
+        {links.map((l) => (
+          <li>{l.label}</li>
+        ))}
+      </ul>
+    </>
   );
 }
 
