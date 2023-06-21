@@ -1,8 +1,5 @@
-import logo from "./logo.svg";
-import "./App.css";
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-// const  [index,setindex] = useState[0]
 
 const story = [
   // This is page a
@@ -49,10 +46,12 @@ const story = [
 // handleclick function purpose is when the user clicks the direction he will taken to another
 
 // <App page="a" />
-function App({ page }) {
+function Story({page}) {
+  // TODO: replace page prop with useState
   const index = story.findIndex((element) => element.id === page);
   const { links, content } = story[index];
-
+  
+  
   return (
     <>
       <p>{content}</p>
@@ -63,6 +62,23 @@ function App({ page }) {
       </ul>
     </>
   );
+}
+
+function App() {
+  const [pageID, setPageID] = useState('a');
+
+
+  const handleSelectionChange = (evt) => {
+      setPageID(evt.target.value)
+  }
+
+  return (<>
+    <select onChange={handleSelectionChange}>
+      <option>a</option>
+      <option>b</option>
+    </select>
+    <Story page={pageID} />
+  </>)
 }
 
 export default App;
