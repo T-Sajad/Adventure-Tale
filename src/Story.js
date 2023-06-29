@@ -1,52 +1,6 @@
 import React, { useState } from 'react';
 
-
-const story = [
-  // This is page a
-  {
-    id: "a",
-    content: "You are standing before a great dark forest. Choose where to go",
-    links: [
-      {
-        label: "North",
-        target: "b",
-      },
-      {
-        label: "South",
-        target: "b",
-      },
-      {
-        label: "East",
-        target: "b",
-      },
-      {
-        label: "West",
-        target: "b",
-      },
-    ],
-  },
-
-  // this is page b
-  {
-    id: "b",
-    content: "You are standing before a sea",
-    links: [
-      {
-        label: "North",
-        target: "a",
-      },
-      {
-        label: "East",
-        target: "a",
-      },
-    ],
-  },
-];
-
-// handleclick function purpose is when the user clicks the direction he will taken to another
-
-function Story({page,onPageChange}) {
-  // TODO: replace page prop with useState
+function Story({page,onPageChange,story}) {
   const index = story.findIndex((element) => element.id === page);
   const { links, content } = story[index];
   
@@ -67,7 +21,7 @@ function Story({page,onPageChange}) {
   );
 }
 
-function App() {
+function App({story}) {
   const [pageID, setPageID] = useState('a');
 
   const handleSelectionChange = (evt) => {
@@ -79,7 +33,7 @@ function App() {
       <option>a</option>
       <option>b</option>
     </select>
-    <Story page={pageID} onPageChange={setPageID} />
+    <Story story={story} page={pageID} onPageChange={setPageID} />
   </>)
 }
 
