@@ -33,11 +33,11 @@ const story = [
     links: [
       {
         label: "North",
-        target: "b",
+        target: "a",
       },
       {
         label: "East",
-        target: "b",
+        target: "a",
       },
     ],
   },
@@ -45,19 +45,22 @@ const story = [
 
 // handleclick function purpose is when the user clicks the direction he will taken to another
 
-// <App page="a" />
-function Story({page}) {
+function Story({page,onPageChange}) {
   // TODO: replace page prop with useState
   const index = story.findIndex((element) => element.id === page);
   const { links, content } = story[index];
   
+  const handleOnClick = (l) => {
+    onPageChange(l.target)
+
+  }
   
   return (
     <>
       <p>{content}</p>
       <ul>
         {links.map((l) => (
-          <li>{l.label}</li>
+          <li onClick={(evt) => handleOnClick(l)}>{l.label}</li>
         ))}
       </ul>
     </>
@@ -66,7 +69,6 @@ function Story({page}) {
 
 function App() {
   const [pageID, setPageID] = useState('a');
-
 
   const handleSelectionChange = (evt) => {
       setPageID(evt.target.value)
@@ -77,7 +79,7 @@ function App() {
       <option>a</option>
       <option>b</option>
     </select>
-    <Story page={pageID} />
+    <Story page={pageID} onPageChange={setPageID} />
   </>)
 }
 
