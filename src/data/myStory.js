@@ -14,7 +14,10 @@ You are standing before a sea
 
 const story = `
 =page_a
+You are standing before a great dark forest
+
 =page_b
+You are standing before a sea
 `
 /*
 [

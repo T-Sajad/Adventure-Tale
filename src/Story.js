@@ -13,7 +13,7 @@ function Story({page,onPageChange,story}) {
     <>
       <p>{content}</p>
       <ul>
-        {links.map((l) => (
+        {links && links.map((l) => (
           <li onClick={(evt) => handleOnClick(l)}>{l.label}</li>
         ))}
       </ul>
@@ -22,7 +22,7 @@ function Story({page,onPageChange,story}) {
 }
 
 function App({story}) {
-  const [pageID, setPageID] = useState('a');
+  const [pageID, setPageID] = useState('page_a');
 
   const handleSelectionChange = (evt) => {
       setPageID(evt.target.value)
@@ -30,8 +30,8 @@ function App({story}) {
 
   return (<>
     <select onChange={handleSelectionChange}>
-      <option>a</option>
-      <option>b</option>
+      <option>page_a</option>
+      <option>page_b</option>
     </select>
     <Story story={story} page={pageID} onPageChange={setPageID} />
   </>)

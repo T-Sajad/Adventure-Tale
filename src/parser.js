@@ -7,22 +7,28 @@ function parse (source){
     // split the source string into lines
     const x = source.split(LINE_BREAK_PATTERN)
     console.log(x)
+    let page = undefined;
     for(const line of x){
         // if the line starts with = 
         if(line.startsWith('=')){
-            // each line is a string of the format
-            // =<page_id>
+            // parse a new story id
 
-            // create a new story object
-            const story_Obj = {id:line.substring(1)}
+            // create a new page object
 
-
+            page ={id:line.substring(1)}
             // add it to the storyJson array
-            storyJson.push(story_Obj)
-           
-
+            storyJson.push(page)
         }
+        else if(line.startsWith('*')){
+          // parse a link
+        } else if (line) {
+          // parse content
+          
+          const targetPage = page;
 
+          //we need to add the content to the page 
+          targetPage.content = line
+        }
     }
     return storyJson
 

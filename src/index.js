@@ -11,7 +11,7 @@ console.log(prop)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App story = {prop} /> */}
+    <App story = {prop} />
   </React.StrictMode>
 );
 
