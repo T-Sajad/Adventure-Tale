@@ -6,14 +6,13 @@ function parse (source){
     // split the source string into lines
     const x = source.split(LINE_BREAK_PATTERN)
     console.log(x)
-    let page = undefined;
+    let page;
     
     for(const line of x){
         // if the line starts with = 
-        if(line.startsWith('=')){
-            // parse a new story id
+        if(line.startsWith('#')){
             // create a new page object
-            page ={id:line.substring(1)}
+            page = {id:line.substring(1)}
             // add it to the storyJson array
             storyJson.push(page)
         }

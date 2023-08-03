@@ -1,22 +1,24 @@
 const storyspec = `
-=page_a
-You are standing before a great dark forest
-* North | north
-* South | south
-* East | east
-* West | west
+#page_a
+  You are standing before a great dark forest
 
-=page_b
-You are standing before a sea
-* North | north
-* East | east
-`;
+  * North | north
+  * South | south
+  * East | east
+  * West | west
+
+#page_b
+  You are standing before a sea
+
+  * North | north
+  * East | east
+  `;
 
 const story = `
-=page_a
+#page_a
 You are standing before a great dark forest
 
-=page_b
+#page_b
 You are standing before a sea
 `
 /*
