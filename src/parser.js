@@ -5,7 +5,6 @@ function parse (source){
     const storyJson = []
     // split the source string into lines
     const x = source.split(LINE_BREAK_PATTERN)
-    console.log(x)
     let page;
     
     for(const line of x){
@@ -15,15 +14,14 @@ function parse (source){
             page = {id:line.substring(1)}
             // add it to the storyJson array
             storyJson.push(page)
-        }
-        else if(line.startsWith('*')){
-          // parse a link
-        } 
-        else if (line) {
-          // parse content
-          const targetPage = page;
-          //we need to add the content to the page 
-          targetPage.content = line
+          }
+          else if(line.startsWith('*')){
+            // parse a link
+          } 
+          else if (line) {
+            // parse content
+            
+            page.content = line
         }
     }
     return storyJson
