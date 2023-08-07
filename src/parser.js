@@ -1,6 +1,11 @@
 // the function takes story text as input and it returns story.json
 const LINE_BREAK_PATTERN = "\n"
 
+const source = `#page_a
+a
+b
+`
+
 function parse (source){
     const storyJson = []
     // split the source string into lines
@@ -20,11 +25,22 @@ function parse (source){
           } 
           else if (line) {
             // parse content
-            
-            page.content = line
-        }
+            if (!page) {
+              throw new Error('content does not belong to a page Title')
+            }
+            if(page.content){
+             page.content += LINE_BREAK_PATTERN + line
+  
+              
+            }else{
+              page.content = line
+
+            }
+          }
+          
     }
     return storyJson
 }
 
 export default parse
+

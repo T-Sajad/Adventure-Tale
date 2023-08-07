@@ -33,12 +33,8 @@ test('parse a story with two pages', () => {
   ])
 })
 
-// 1) BUG: parser will fail if there's no title
-// 2) BUG: our parser doesn't support two lines of content yet!
-// 3) DONE long strings!
 test('parse the story with content',()=>{
   const content =`#page_a
-  
 a`
 
   const result = parse(content) 
@@ -53,10 +49,28 @@ a`
 
 })
 
-test.skip('throw and error if a story has no title', () => {
-  // TODO
-})
+test('throw an error if a story has no title', () => {
+  const content =`a`
+  
+  // expect toThrow API: https://jestjs.io/docs/expect#tothrowerror
+  expect(() => {
+    parse(content)
+  }).toThrow(new Error('content does not belong to a page Title'));
+});
 
-test.skip('parse a story with two lines of content', () => {
-  // TODO
+test('parse a story with two lines of content', () => {
+  const content =`#page_a
+a
+b`
+  
+    const result = parse(content) 
+  
+  
+    // expect API: https://jestjs.io/docs/expect
+    expect(result).toEqual([{
+      id:'page_a',
+      content:`a
+b`
+    },
+  ])
 })
