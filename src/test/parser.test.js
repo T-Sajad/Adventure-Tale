@@ -74,3 +74,15 @@ b`
     },
   ])
 })
+
+test.only('handle leading and trailing white space',()=>{
+  const content =` #page_a 
+ a `
+
+  const result = parse(content) 
+
+  expect(result).toEqual([{
+    id:'page_a',
+    content:`a`
+  }])
+});
