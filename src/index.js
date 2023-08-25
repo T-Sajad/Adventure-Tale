@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './Story';
-import reportWebVitals from './reportWebVitals';
-import story from './data/myStory'
-import parse from './parser'
-console.log(story)
-const prop = parse(story)
-console.log(prop)
+import App from './Story.js';
+import reportWebVitals from './reportWebVitals.js';
+import story from './data/myStory.json'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App story = {prop} />
+    <App story = {story} />
   </React.StrictMode>
 );
 

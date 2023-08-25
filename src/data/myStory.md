@@ -1,6 +1,6 @@
 #page_a
 
-You are standing before a great dark forest
+Long weekend 
 
     * North | page_b
 * South | south
