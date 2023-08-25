@@ -1,40 +1,38 @@
 [
   {
-    "id": "a",
-    "content": "You are standing before a great dark forest. Choose where to go",
-    links: [
+    "id": "page_a",
+    "links": [
       {
-        label: "North",
-        target: "b",
+        "label": "North",
+        "target": "page_b"
       },
       {
-        label: "South",
-        target: "b",
+        "label": "South",
+        "target": "south"
       },
       {
-        label: "East",
-        target: "b",
+        "label": "East",
+        "target": "east"
       },
       {
-        label: "West",
-        target: "b",
-      },
+        "label": "West",
+        "target": "west"
+      }
     ],
+    "content": "You are standing before a great dark forest"
   },
-
-  // this is page b
   {
-    id: "b",
-    content: "You are standing before a sea",
-    links: [
+    "id": "page_b",
+    "links": [
       {
-        label: "North",
-        target: "a",
+        "label": "North",
+        "target": "north"
       },
       {
-        label: "East",
-        target: "a",
-      },
+        "label": "East",
+        "target": "east"
+      }
     ],
-  },
+    "content": "You are standing before a sea"
+  }
 ]
