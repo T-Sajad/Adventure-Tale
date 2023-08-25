@@ -1,0 +1,38 @@
+[
+  {
+    "id": "page_a",
+    "links": [
+      {
+        "label": "North",
+        "target": "page_b"
+      },
+      {
+        "label": "South",
+        "target": "south"
+      },
+      {
+        "label": "East",
+        "target": "east"
+      },
+      {
+        "label": "West",
+        "target": "west"
+      }
+    ],
+    "content": "You are standing before a great dark forest"
+  },
+  {
+    "id": "page_b",
+    "links": [
+      {
+        "label": "North",
+        "target": "north"
+      },
+      {
+        "label": "East",
+        "target": "east"
+      }
+    ],
+    "content": "You are standing before a sea"
+  }
+]

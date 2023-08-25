@@ -8,10 +8,10 @@ test('parse a story with one page', () => {
   const story = '#my-page'
 
   const result = parse(story);
+  expect(result.length).toEqual(1)
 
-  expect(result).toEqual([{
-    id: 'my-page'
-  }])
+  const page = result[0]
+  expect(page.id).toEqual('my-page')  
 })
 
 test('parse a story with two pages', () => {
@@ -26,9 +26,11 @@ test('parse a story with two pages', () => {
   // check/test the result (assertion)
   expect(result).toEqual([{
     id:'page_a',
+    links:[],
     
   },{
     id:'page_b',
+    links:[]
   }
   ])
 })
@@ -43,7 +45,8 @@ a`
   // expect API: https://jestjs.io/docs/expect
   expect(result).toEqual([{
     id:'page_a',
-    content:'a'
+    content:'a',
+    links:[]
   }
 ])
 
@@ -70,12 +73,13 @@ b`
     expect(result).toEqual([{
       id:'page_a',
       content:`a
-b`
+b`,
+      links:[]
     },
   ])
 })
 
-test.only('handle leading and trailing white space',()=>{
+test('handle leading and trailing white space',()=>{
   const content =` #page_a 
  a `
 
@@ -83,6 +87,28 @@ test.only('handle leading and trailing white space',()=>{
 
   expect(result).toEqual([{
     id:'page_a',
-    content:`a`
+    content:`a`,
+    links:[]
   }])
 });
+
+test('parse a link', ()=>{
+  const content =`#page_a
+  a
+  * S | s`
+
+  const result =parse(content)
+
+
+  expect(result).toEqual([{
+    id:'page_a',
+    content:'a',
+    links:[
+      {
+      label:'S',
+      target:'s'
+      }
+    ]
+
+  }])
+})

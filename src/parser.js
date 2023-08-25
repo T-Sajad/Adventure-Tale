@@ -12,7 +12,7 @@ function parse (source){
   // split the source string into lines
   const x = source.split(LINE_BREAK_PATTERN)
   let page;
-  
+
   
   for(const line of x){
     const trimmedLine = line.trim()
@@ -21,12 +21,26 @@ function parse (source){
     //
     if(trimmedLine.startsWith('#')){
         // create a new page object
-        page = {id:trimmedLine.substring(1)}
+        page = {
+          id:trimmedLine.substring(1),
+          links:[]
+        }
+
         // add it to the storyJson array
         storyJson.push(page)
       }
       else if(trimmedLine.startsWith('*')){
-        // parse a link
+        // 1) identify the label and target
+        const rawLinkText = trimmedLine.substring(1);
+        const split2 = rawLinkText.split('|'); 
+        const label = split2[0].trim()
+        const target = split2[1].trim()
+        
+        // 2) create a link object
+        const link ={ label, target };
+
+        // 3) add the link to the page
+        page.links.push(link)
       } 
       else if (trimmedLine) {
         // parse content
