@@ -112,3 +112,19 @@ test('parse a link', ()=>{
 
   }])
 })
+
+test('parsing a image',()=>{
+
+  const content =`#page_a
+  @image:www.john_cena
+
+  `
+
+  const result = parse(content)
+
+  expect(result).toEqual([{
+    id:'page_a',
+    image:'www.john_cena',
+    links:[],
+  }])
+})

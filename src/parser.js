@@ -29,6 +29,14 @@ function parse (source){
         // add it to the storyJson array
         storyJson.push(page)
       }
+      else if(trimmedLine.startsWith('@image')){
+        // add a image to the storyjson page
+      const remove = trimmedLine.substring('@image:'.length)
+
+       page.image = remove
+
+
+      }
       else if(trimmedLine.startsWith('*')){
         // 1) identify the label and target
         const rawLinkText = trimmedLine.substring(1);

@@ -12,3 +12,6 @@ Create branches for each new feature!
 * Create an actual story!
 * Create a server an server story data asynchronously
 
+
+* reset / back to the menu
+* menu screen- start 

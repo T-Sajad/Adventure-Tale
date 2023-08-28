@@ -4,7 +4,7 @@ import './App.css'
 
 function Story({page,onPageChange,story}) {
   const index = story.findIndex((element) => element.id === page);
-  const { links, content } = story[index];
+  const { links, content,image } = story[index];
   
   const handleOnClick = (l) => {
     onPageChange(l.target)
@@ -14,7 +14,7 @@ function Story({page,onPageChange,story}) {
   return (
     <div className='container'>
       <div className='image'>
-        <img src="https://images4.alphacoders.com/131/1311340.jpg"></img>
+        <img src={image}></img>
       </div>
       <p className='content'>{content}</p>
      

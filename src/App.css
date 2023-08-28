@@ -3,6 +3,7 @@
   height: 100vh; /* 100% view height */
  
   display: flex;
+  background-image: url('https://th.bing.com/th/id/R.8d10c6efa90ca9216af9ab91b3ebc279?rik=A24oNylZXBDKqg&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f01%2f202396-space-stars-nebula-Carina_Nebula.jpg&ehk=6stdwNzy6FHZtXtLA%2bIhnorN3Z5zUPdUJ8nxeSnGnnw%3d&risl=1&pid=ImgRaw&r=0');
 }
 
 .container {
@@ -20,6 +21,7 @@
 .container .image {
   /* border: dashed 1px blue; */
   text-align: center;
+
 }
 
 .container .image img {
@@ -29,7 +31,18 @@
 .container .content {
   border-radius: 10px;
   /* border: dashed 1px green; */
+  border: rgb(12, 12, 12);
+  padding: 6px 0;
   text-align: center;
+  margin: 10px 20px;
+  background-color: white;
+  border-style: bold;
+
+  display: flex;
+  justify-content: center;
+  box-shadow:1px 15px 33px 0px rgba(9, 9, 9, 0.75);
+  -webkit-box-shadow: 1px 15px 33px 0px rgba(10, 9, 9, 0.75);
+  -moz-box-shadow: 1px 15px 33px 0px rgba(0,0,0,0.75);
 }
 
 .container .links {
@@ -41,6 +54,7 @@
 
   margin-left: 0;
   padding-left: 0;
+ 
   
 }
 
@@ -50,15 +64,18 @@
   text-align: center;
   list-style-type: none;
   margin: 10px 20px;
-
+ 
   display: flex;
   justify-content: center;
+ 
 }
 
 .container .links .label{
   border: solid 1px black;
   border-radius:10px;
   width: 70%;
+  background-color: azure;
+  border-style: bold;
   padding: 6px 0;
   box-shadow:1px 15px 33px 0px rgba(0,0,0,0.75);
   -webkit-box-shadow: 1px 15px 33px 0px rgba(0,0,0,0.75);
