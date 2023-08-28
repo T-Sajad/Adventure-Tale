@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './App.css'
+
 function Story({page,onPageChange,story}) {
   const index = story.findIndex((element) => element.id === page);
   const { links, content } = story[index];
@@ -10,14 +12,22 @@ function Story({page,onPageChange,story}) {
   }
   
   return (
-    <>
-      <p>{content}</p>
-      <ul>
+    <div className='container'>
+      <div className='image'>
+        <img src="https://images4.alphacoders.com/131/1311340.jpg"></img>
+      </div>
+      <p className='content'>{content}</p>
+     
+      <ul className='links'>
         {links && links.map((l) => (
-          <li onClick={(evt) => handleOnClick(l)}>{l.label}</li>
-        ))}
+            <li onClick={(evt) => handleOnClick(l)}>
+          <div className='label'>
+              {l.label}
+          </div>
+          </li>
+          ))}
       </ul>
-    </>
+   </div>
   );
 }
 
@@ -28,13 +38,14 @@ function App({story}) {
       setPageID(evt.target.value)
   }
 
-  return (<>
-    <select onChange={handleSelectionChange}>
+  return (
+ <div className='app'>
+    {/* <select onChange={handleSelectionChange}>
       <option>page_a</option>
       <option>page_b</option>
-    </select>
+    </select> */}
     <Story story={story} page={pageID} onPageChange={setPageID} />
-  </>)
+ </div>)
 }
 
 export default App;
